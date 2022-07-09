@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Montserrat", sans-serif;
+  background-color: #ededed;
+}
+
+@PrimaryColor: #a428a7;
+
+.main-container {
+  width: 1200px;
+  position: relative;
+  margin: 25px auto;
+  min-height: 650px;
+
+  @media (max-width: 1220px) {
+    width: 90%;
+    margin: 0px auto;
+  }
+
+  .head-block {
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: solid 1px rgb(133, 133, 133);
+    align-items: center;
+    padding: 0px 15px;
+    box-sizing: border-box;
+
+    @media (max-width: 550px) {
+      flex-direction: column;
+      align-items: revert;
+      padding: 0px 0px 20px 0px;
+    }
+
+    .heading {
+      font-size: 30px;
+      font-weight: 600;
+      color: #000;
+      line-height: 30px;
+      margin-bottom: 20px;
+    }
+
+    .button-container {
+      position: relative;
+      display: flex;
+
+      .primary-button {
+        background-color: @PrimaryColor;
+        color: #fff;
+        border: none;
+        margin-left: 10px;
+        padding: 10px 20px;
+        font-size: 15px;
+        font-weight: 500;
+        transition: all 0.3s ease-in-out;
+        border: solid 1px @PrimaryColor;
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+
+        @media (max-width: 550px) {
+          margin-left: 0px;
+          margin-right: 15px;
+        }
+
+        &:hover {
+          border: solid 1px @PrimaryColor;
+          background-color: #fff;
+          color: @PrimaryColor;
+          transition: all 0.3s ease-in-out;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .product-block-container {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+
+    .single-product {
+      width: 260px;
+      height: 200px;
+      border: solid 1px #cdcdcd;
+      position: relative;
+      margin: 20px 20px;
+      background-color: #fff;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      border-radius: 3px;
+      box-sizing: border-box;
+      padding: 15px;
+
+      @media (max-width: 540px) {
+        width: 100%;
+        margin: 10px 0px;
+      }
+
+      &:hover {
+        box-shadow: 0px 6px 40px #bdbdbd;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .delete-checkbox-container {
+        display: block;
+        position: relative;
+        padding-left: 35px;
+        cursor: pointer;
+        font-size: 15px;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        height: 22px;
+        width: 30px;
+
+        input {
+          position: absolute;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+
+          &:checked ~ .checkmark {
+            background-color: @PrimaryColor;
+
+            &:after {
+              display: block;
+            }
+          }
+        }
+
+        .checkmark {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 20px;
+          width: 20px;
+          background-color: #fff;
+          border: solid 1px @PrimaryColor;
+
+          &:after {
+            content: "";
+            position: absolute;
+            display: none;
+            left: 6px;
+            top: 2px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            -webkit-transform: rotate(45deg);
+            -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+          }
+        }
+      }
+
+      .product-details {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px;
+
+        .product-data {
+          font-size: 15px;
+          font-weight: 500;
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+    // Product Form
+    #product_form {
+      .each-field {
+        width: 340px;
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        position: relative;
+
+        label {
+          width: 100px;
+          font-size: 15px;
+        }
+
+        input {
+          width: 250px;
+          height: 35px;
+          box-sizing: border-box;
+          padding-left: 10px;
+          outline: none;
+          font-size: 15px;
+          border: solid 1px #cdcdcd;
+        }
+      }
+
+      .error-span {
+        position: absolute;
+        right: 5px;
+        font-size: 12px;
+        top: 40px;
+        color: rgb(184, 23, 23);
+        opacity: 0;
+        transition: all 0.2s ease-in;
+
+        &.show {
+          opacity: 1;
+          transition: all 0.2s ease-in;
+        }
+      }
+
+      .product-type-block {
+        width: 340px;
+        margin-top: 30px;
+        position: relative;
+
+        #product_type {
+          width: 214px;
+          height: 35px;
+          margin-left: 20px;
+          padding-left: 5px;
+          box-sizing: border-box;
+          font-size: 15px;
+          appearance: none;
+          -moz-appearance: none;
+          -webkit-appearance: none;
+          border: solid 1px #cdcdcd;
+          background-color: #fff;
+        }
+
+        .chev-down {
+          position: absolute;
+          right: 15px;
+          top: 14px;
+          width: 16px;
+        }
+      }
+
+      .dynamic-form {
+        opacity: 0;
+        pointer-events: none;
+        transform: all 0.3s ease-out;
+        display: none;
+
+        &.show {
+          opacity: 1;
+          display: block;
+          pointer-events: auto;
+          transform: all 0.3s ease-out;
+        }
+      }
+    }
+  }
+}
+
+.footer-container {
+  height: 50px;
+  background-color: @PrimaryColor;
+  width: 100%;
+  position: relative;
+  text-align: center;
+  color: #fff;
+  box-sizing: border-box;
+  padding-top: 17px;
+}
